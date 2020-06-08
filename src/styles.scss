@@ -1,3 +1,526 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap");
+$backgroudColor: #f8f8f8;
+$whiteColor: #ffffff;
+$BlackColor: #000000;
+$fontColor: #666666;
+$themesColor: #26aae1;
+$OpenSansFonts: "Open Sans",
+sans-serif;
+$PoppinsFonts: "Poppins",
+sans-serif;
+$fontawesome: fontawesome;
+$smallShadow: 0 0.125rem 0.25rem rgba(0,
+0,
+0,
+0.075);
+$regularShadow: 0 0.5rem 1rem rgba(0,
+0,
+0,
+0.15);
+$largerShadow: 0 1rem 3rem rgba(0,
+0,
+0,
+0.175);
+$transitionEffects: all 0.5s ease;
+@mixin TopBannersColor {
+    background: #ffffff;
+    background: -moz-linear-gradient(top, #ffffff 0%, #f8f8f8 100%);
+    background: -webkit-linear-gradient(top, #ffffff 0%, #f8f8f8 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #f8f8f8 100%);
+}
+
+@mixin BorderButton {
+    font-size: 18px;
+    background-color: transparent;
+    border: solid $themesColor 2px;
+    padding: 10px 25px;
+    font-weight: 600;
+    color: $themesColor;
+    border-radius: 30px;
+    transition: $transitionEffects;
+    cursor: pointer;
+    &:hover {
+        transition: $transitionEffects;
+        background-color: $themesColor;
+        color: $whiteColor;
+        border: solid 2px $themesColor;
+    }
+    &:focus {
+        box-shadow: none;
+        outline: none;
+        border: solid 2px $themesColor;
+    }
+}
+
+@mixin BackgroundButtons {
+    font-size: 18px;
+    background-color: $themesColor;
+    border: solid $themesColor 2px;
+    padding: 10px 25px;
+    font-weight: 600;
+    color: $whiteColor;
+    border-radius: 30px;
+    transition: $transitionEffects;
+    cursor: pointer;
+    &:hover {
+        transition: $transitionEffects;
+        background-color: transparent;
+        color: $themesColor;
+        border: solid 2px $themesColor;
+    }
+    &:focus {
+        box-shadow: none;
+        outline: none;
+        border: solid 2px $themesColor;
+    }
+}
+
+@mixin subHeading {
+    font-size: 30px;
+    font-weight: bold;
+    position: relative;
+    margin: 0 0 20px 0;
+    padding: 0 0 0 15px;
+    font-family: $PoppinsFonts;
+    color: $fontColor;
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: auto;
+        top: 0;
+        width: 5px;
+        height: 100%;
+        background-color: $themesColor;
+    }
+}
+
+html,
+body {
+    height: 100%;
+    max-height: 100%;
+}
+
+body {
+    font-family: $OpenSansFonts;
+}
+
+
+/***************
+Home page 
+***************/
+
+.home_page_section {
+    position: relative;
+    width: 100%;
+    @include TopBannersColor();
+    height: 100%;
+    max-height: 100%;
+    .top_banner_overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: url("../src/assets/images/banner-shape-wave.png");
+        background-size: cover;
+        background-position: center;
+    }
+    .round-shape-one {
+        position: absolute;
+        right: 6%;
+        top: 5%;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        border: 1px dashed rgba(94, 44, 237, 0.1);
+        animation: rotated 30s infinite linear;
+        &::before {
+            content: "";
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            top: 50%;
+            left: -7px;
+            background: $themesColor;
+            border-radius: 50%;
+        }
+    }
+    .carousel {
+        .carousel-inner {
+            height: 600px;
+            .carousel-item {
+                .home_heading {
+                    width: 100%;
+                    max-width: 670px;
+                    padding: 120px 0 0 0;
+                    h1 {
+                        font-size: 50px;
+                        font-weight: bold;
+                        margin: 0 0 30px 0;
+                        color: $fontColor;
+                        font-family: $PoppinsFonts;
+                        span {
+                            color: $themesColor;
+                            font-style: italic;
+                        }
+                    }
+                    p {
+                        font-size: 20px;
+                        margin: 0 0 50px 0;
+                    }
+                    button {
+                        @include BackgroundButtons();
+                    }
+                }
+                .home_img {
+                    padding: 60px 0 0 0;
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        ul.carousel-indicators {
+            margin: 0;
+            left: auto;
+            right: 0;
+            bottom: 15px;
+            li {
+                background-color: $BlackColor;
+                &.active {
+                    background-color: $themesColor;
+                }
+            }
+        }
+        .carousel-control-prev,
+        .carousel-control-next {
+            margin: 0;
+            width: auto !important;
+            span {
+                svg {
+                    width: 40px;
+                }
+                &:hover {
+                    svg {
+                        fill: $themesColor;
+                    }
+                }
+            }
+        }
+        .carousel-control-prev {
+            left: auto;
+            top: auto;
+            right: 30px;
+            bottom: 20px;
+        }
+        .carousel-control-next {
+            right: 0;
+            top: auto;
+            bottom: 20px;
+            span {
+                svg {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
+
+/*************************
+Product Page style
+************************/
+
+.product_section {
+    padding: 80px 0 60px 0;
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 586px;
+        height: 763px;
+        background: url('../src/assets/images/product_bg.png');
+        background-repeat: no-repeat;
+    }
+    .product_description {
+        position: relative;
+        .product_heading {
+            h2 {
+                @include subHeading();
+            }
+            p {
+                font-size: 18px;
+                margin: 0;
+            }
+        }
+        .product_body {
+            margin: 40px 0 0 0;
+            h3 {
+                font-size: 20px;
+                margin: 0 0 15px 0;
+                font-weight: 600;
+                color: $BlackColor;
+            }
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0 0 0 20px;
+                li {
+                    margin: 0 0 10px 0;
+                    font-size: 16px;
+                    color: $fontColor;
+                    position: relative;
+                    &::before {
+                        content: "\f00c";
+                        position: absolute;
+                        left: -20px;
+                        top: 2px;
+                        font-size: 16px;
+                        color: $themesColor;
+                        font-family: $fontawesome;
+                    }
+                }
+            }
+            button {
+                margin: 25px 0 0 0;
+                @include BorderButton();
+            }
+        }
+    }
+    .list_of_product {
+        position: relative;
+        .product_card {
+            position: relative;
+            padding: 40px 40px 0px;
+            background-color: $whiteColor;
+            box-shadow: $smallShadow;
+            border-radius: 15px;
+            max-width: 430px;
+            width: 100%;
+            margin: 0 0 30px 0;
+            transition: $transitionEffects;
+            z-index: 1;
+            &:hover {
+                transition: $transitionEffects;
+                box-shadow: $regularShadow;
+            }
+            &:nth-child(2) {
+                margin: 0 0 30px 60px !important;
+            }
+            .content {
+                position: relative;
+                padding-left: 88px;
+                padding-bottom: 35px;
+                .icon-box {
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    width: 60px;
+                    height: 100%;
+                    color: #ffffff;
+                    text-align: center;
+                    padding-top: 24px;
+                    font-size: 25px;
+                    border-radius: 50px 50px 0px 0px;
+                    background-color: #ed1c24;
+                }
+                h3 {
+                    position: relative;
+                    color: $fontColor;
+                    font-size: 20px;
+                    font-weight: 700;
+                    span {
+                        color: $themesColor;
+                    }
+                }
+                p {
+                    position: relative;
+                    color: $BlackColor;
+                    font-size: 14px;
+                    margin: 0;
+                }
+                .learn_more_text {
+                    margin: 20px 0 0 0;
+                    a {
+                        font-size: 14px;
+                        margin: 0;
+                        cursor: pointer;
+                        transition: $transitionEffects;
+                        &:hover {
+                            text-decoration: underline;
+                            color: $themesColor;
+                            transition: $transitionEffects;
+                        }
+                    }
+                }
+            }
+        }
+        .product_card.eventOnline {
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                left: auto;
+                right: -100px;
+                top: auto;
+                bottom: 20px;
+                background: url('../src/assets/images/Product_icon_2.png');
+                animation: rotated 30s infinite linear;
+                width: 45px;
+                height: 45px;
+            }
+        }
+        .product_card.autoCast {
+            .content {
+                .icon-box {
+                    background-color: $themesColor;
+                }
+            }
+        }
+        .product_card.concallPro {
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                left: auto;
+                right: -50px;
+                top: auto;
+                bottom: 20px;
+                background: url('../src/assets/images/Product_icon_1.png');
+                animation: rotated 30s infinite linear;
+                width: 33px;
+                height: 33px;
+            }
+            .content {
+                .icon-box {
+                    background-color: #ffb400;
+                }
+            }
+        }
+    }
+}
+
+
+/*************************
+Our Service page
+*************************/
+
+.service_section {
+    padding: 60px 0 60px 0;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        right: auto;
+        left: 0;
+        top: 0px;
+        width: 961px;
+        height: 947px;
+        background: url('../src/assets/images/Service_bg.png');
+    }
+    .service_heading {
+        position: relative;
+        h2 {
+            @include subHeading();
+        }
+        p {
+            font-size: 20px;
+            color: $BlackColor;
+        }
+    }
+    .inner-container {
+        position: relative;
+        padding-left: 400px;
+        margin-top: -100px;
+        // border: solid 1px red;
+        .service_card {
+            &:first-child {
+                position: absolute;
+                left: 0px;
+                top: 160px;
+            }
+            &:nth-child(3) {
+                margin-top: 40px;
+            }
+            &:nth-child(5) {
+                margin-top: 60px;
+            }
+            &:nth-child(7) {
+                margin-top: 80px;
+            }
+            &:nth-child(8) {
+                position: absolute;
+                left: 0;
+                top: 500px;
+            }
+            .inner_box {
+                position: relative;
+                overflow: hidden;
+                padding: 30px 26px;
+                border-radius: 10px;
+                box-shadow: $smallShadow;
+                background: $whiteColor;
+                transition: $transitionEffects;
+                &:hover {
+                    transition: $transitionEffects;
+                    box-shadow: $regularShadow;
+                    h3 {
+                        color: $themesColor;
+                    }
+                    .icon-box {
+                        span {
+                            svg {
+                                fill: $themesColor;
+                            }
+                        }
+                    }
+                }
+                .icon-box {
+                    span {
+                        svg {
+                            width: 80px;
+                            fill: $themesColor;
+                        }
+                    }
+                }
+                h3 {
+                    font-size: 24px;
+                    position: relative;
+                    color: $BlackColor;
+                    font-weight: 600;
+                    margin: 25px 0px 18px;
+                }
+            }
+        }
+    }
+}
+
+@-webkit-keyframes rotated {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotated {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

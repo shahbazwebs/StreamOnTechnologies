@@ -1,11 +1,12 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   isSticky: boolean = false;
 
   constructor() { }
@@ -14,8 +15,9 @@ export class HeaderComponent implements OnInit {
     this.isSticky = window.pageYOffset >= 250;
   }
   ngOnInit() {
-
-    
+  }
+  ngAfterViewInit() {
+    $.getScript('../../../../assets/js/customMenu.js', function(){});    
   }
 
 }
