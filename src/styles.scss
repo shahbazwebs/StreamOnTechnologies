@@ -7,6 +7,7 @@ $whiteColor: #ffffff;
 $BlackColor: #000000;
 $fontColor: #666666;
 $themesColor: #26aae1;
+// $themesColor: green;
 $OpenSansFonts: "Open Sans",
 sans-serif;
 $PoppinsFonts: "Poppins",
@@ -497,6 +498,102 @@ Our Service page
                     color: $BlackColor;
                     font-weight: 600;
                     margin: 25px 0px 18px;
+                }
+            }
+        }
+    }
+}
+
+
+/****************************
+testimonail slider sections
+***************************/
+
+.testimonal_sections {
+    padding: 60px 0;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        right: auto;
+        top: 150px;
+        background: url('../src/assets/images/ring-circle.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        max-width: 540px;
+        height: 540px;
+        -webkit-animation: fa-spin 25s infinite alternate;
+        -moz-animation: fa-spin 25s infinite alternate;
+        -ms-animation: fa-spin 25s infinite alternate;
+        -o-animation: fa-spin 25s infinite alternate;
+        animation: fa-spin 25s infinite alternate;
+    }
+    .testimonal_heading {
+        h2 {
+            @include subHeading();
+        }
+        p {
+            font-size: 25px;
+            color: $fontColor;
+            margin: 0;
+        }
+    }
+    .carousel_testimonial {
+        margin: 40px 0 0 0;
+        .carousel-inner {
+            .carousel-item {
+                .testimonial_card {
+                    box-shadow: $smallShadow;
+                    background: $whiteColor;
+                    border-radius: 10px;
+                    padding: 20px;
+                    margin: 20px;
+                    transition: $transitionEffects;
+                    height: 100%;
+                    max-height: 370px;
+                    &:hover {
+                        transition: $transitionEffects;
+                        box-shadow: $regularShadow;
+                        .double_quotes_mark {
+                            i {
+                                color: $themesColor;
+                                transition: $transitionEffects;
+                            }
+                        }
+                    }
+                    .double_quotes_mark {
+                        margin: 0 0 30px 0;
+                        text-align: left;
+                        i {
+                            color: #f1f1f1;
+                            opacity: 0.8;
+                            font-size: 60px;
+                            transform: rotate(180deg);
+                            transition: $transitionEffects;
+                        }
+                    }
+                    .testimonial_body {
+                        p {
+                            margin: 0 0 20px 0;
+                        }
+                    }
+                    .testimonial_footer {
+                        text-align: right;
+                        p {
+                            margin: 0;
+                        }
+                        .client_name {
+                            font-size: 16px;
+                            font-weight: 600;
+                        }
+                        .company_name {
+                            font-weight: bold;
+                            color: $themesColor;
+                        }
+                    }
                 }
             }
         }
